@@ -7,20 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83f58d18-a071-47cd-836f-b68188fce39c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/contract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/Homemaking/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/eight/homemaking/dao/BasicDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/dao/BasicDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/eight/homemaking/dao/ManagerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/dao/ManagerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Homemaking/login.htm" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/login.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/Menu.htm" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/Menu.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xz.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xz.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.htm" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Homemaking/login.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.htm" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_ck.htm" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_ck.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xg.htm" beforeDir="false" afterPath="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xg.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,14 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManageServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java">
+      <file leaf-file-name="ManagerDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/dao/ManagerDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="137" column="65" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="65" />
+            <state relative-caret-position="1677">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2042#2058#0" expanded="true" />
+                <element signature="e#8094#8104#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,22 +45,27 @@
       <file leaf-file-name="Employer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+            <state relative-caret-position="100">
+              <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
               <folding>
-                <element signature="e#2557#2558#0" expanded="true" />
-                <element signature="e#2603#2604#0" expanded="true" />
-                <element signature="e#2641#2642#0" expanded="true" />
+                <element signature="e#2523#2524#0" expanded="true" />
+                <element signature="e#2553#2554#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.htm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/Menu.htm">
+      <file leaf-file-name="ManagerServiceImp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="29" column="88" lean-forward="true" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+            <state relative-caret-position="457">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1164#1165#0" expanded="true" />
+                <element signature="e#1219#1220#0" expanded="true" />
+                <element signature="e#1319#1320#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,33 +73,10 @@
       <file leaf-file-name="ManagerService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="350">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gzxx.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="80" column="87" lean-forward="true" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.htm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Homemaking/login.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="64" column="150" selection-start-line="64" selection-start-column="125" selection-end-line="64" selection-end-column="150" />
-              <folding>
-                <element signature="n#style#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#td#1;n#tr#0;n#table#0;n#TD#0;n#TR#0;n#TABLE#0;n#TD#0;n#TR#0;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#td#1;n#tr#0;n#table#0;n#TD#0;n#TR#0;n#TABLE#0;n#TD#0;n#TR#0;n#TABLE#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,29 +85,47 @@
       <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/Homemaking/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="51" column="96" lean-forward="true" selection-start-line="51" selection-start-column="96" selection-end-line="51" selection-end-column="96" />
+            <state>
+              <caret line="18" column="116" lean-forward="true" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu_ywgl.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.jsp">
+      <file leaf-file-name="gzxx.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="113" column="153" selection-start-line="113" selection-start-column="137" selection-end-line="113" selection-end-column="153" />
+            <state relative-caret-position="375">
+              <caret line="90" column="232" selection-start-line="90" selection-start-column="232" selection-end-line="90" selection-end-column="232" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerDao.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/dao/ManagerDao.java">
+      <file leaf-file-name="ManageServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="140" column="45" lean-forward="true" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+            <state relative-caret-position="176">
+              <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gzxx_xg.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xg.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gzxx_ck.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_ck.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="51" column="44" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -166,16 +163,18 @@
         <option value="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/QueryCustomer.java" />
         <option value="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/contract.java" />
         <option value="$PROJECT_DIR$/web/Homemaking/login.htm" />
-        <option value="$PROJECT_DIR$/web/Homemaking/login.jsp" />
         <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.htm" />
         <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.jsp" />
-        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java" />
-        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java" />
         <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xz.jsp" />
-        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java" />
-        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java" />
-        <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp" />
+        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java" />
         <option value="$PROJECT_DIR$/src/cn/eight/homemaking/dao/ManagerDao.java" />
+        <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp" />
+        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java" />
+        <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_ck.jsp" />
+        <option value="$PROJECT_DIR$/web/Homemaking/login.jsp" />
+        <option value="$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java" />
+        <option value="$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xg.jsp" />
       </list>
     </option>
   </component>
@@ -196,10 +195,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="883" />
-    <option name="y" value="1" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="width" value="1230" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -209,8 +207,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,11 +287,19 @@
               <item name="ny" type="462c0819:PsiDirectoryNode" />
               <item name="ywgl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HouseService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HouseService" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,7 +491,8 @@
       <updated>1584191340116</updated>
       <workItem from="1584191341467" duration="11381000" />
       <workItem from="1584244690851" duration="20091000" />
-      <workItem from="1584325000382" duration="23059000" />
+      <workItem from="1584325000382" duration="24214000" />
+      <workItem from="1584363442157" duration="9589000" />
     </task>
     <task id="LOCAL-00001" summary="完成新增客户功能">
       <created>1584258570867</created>
@@ -496,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584258570867</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="完成查找客户功能">
+      <created>1584354869723</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584354869723</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -517,7 +529,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54531000" />
+    <option name="totallyTimeSpent" value="65275000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -534,7 +546,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.387458" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.2049272" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.26651737" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
@@ -542,9 +554,9 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43673012" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.537514" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12526652" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13539445" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -564,11 +576,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成新增客户功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成新增客户功能" />
+    <MESSAGE value="完成查找客户功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成查找客户功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="38" />
+      <option name="time" value="50" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -622,9 +635,6 @@
           <caret line="330" column="19" lean-forward="true" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xg.htm">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/lsda.htm">
       <provider selected="true" editor-type-id="text-editor" />
@@ -751,22 +761,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.5.2.jar!/com/mchange/v2/c3p0/impl/NewProxyConnection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="1321" selection-start-line="1321" selection-end-line="1321" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/db.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="48" selection-start-line="1" selection-start-column="48" selection-end-line="1" selection-end-column="48" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_ck.htm">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.htm">
       <provider selected="true" editor-type-id="text-editor">
@@ -831,35 +831,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/pojo/QueryCustomer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#808#809#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1128#1129#0" expanded="true" />
-            <element signature="e#1196#1197#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/pojo/QueryCustomer.java" />
     <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.5.2.jar!/com/mchange/v2/c3p0/impl/NewProxyPreparedStatement.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -877,40 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/Menu.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="29" column="88" lean-forward="true" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-          <folding>
-            <element signature="e#2557#2558#0" expanded="true" />
-            <element signature="e#2603#2604#0" expanded="true" />
-            <element signature="e#2641#2642#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xz.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2500">
           <caret line="127" column="35" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="137" column="65" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2042#2058#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -921,38 +863,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java">
+    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1164#1165#0" expanded="true" />
-            <element signature="e#1187#1188#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="200">
+          <caret line="113" column="153" selection-start-line="113" selection-start-column="137" selection-end-line="113" selection-end-column="153" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java">
+    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/Menu.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="80" column="87" lean-forward="true" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
+        <state relative-caret-position="125">
+          <caret line="29" column="88" lean-forward="true" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/Homemaking/login.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
+        <state relative-caret-position="404">
           <caret line="64" column="150" selection-start-line="64" selection-start-column="125" selection-end-line="64" selection-end-column="150" />
           <folding>
             <element signature="n#style#0;n#BODY#0;n#HTML#0;n#!!top" expanded="true" />
@@ -962,27 +889,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Homemaking/login.jsp">
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.5.2.jar!/com/mchange/v2/c3p0/impl/NewProxyConnection.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="51" column="96" lean-forward="true" selection-start-line="51" selection-start-column="96" selection-end-line="51" selection-end-column="96" />
+        <state relative-caret-position="295">
+          <caret line="399" column="28" selection-start-line="399" selection-start-column="28" selection-end-line="399" selection-end-column="28" />
+          <folding>
+            <element signature="e#55171#55172#0" expanded="true" />
+            <element signature="e#55218#55219#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/menu_ywgl.jsp">
+    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/service/ManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="113" column="153" selection-start-line="113" selection-start-column="137" selection-end-line="113" selection-end-column="153" />
+        <state relative-caret-position="350">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/service/ServiceImp/ManagerServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1319#1320#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/dao/ManagerDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="140" column="45" lean-forward="true" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+        <state relative-caret-position="1677">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8094#8104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="90" column="232" selection-start-line="90" selection-start-column="232" selection-end-line="90" selection-end-column="232" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/controller/ManageServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="48" column="51" lean-forward="true" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_ck.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="51" column="44" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Homemaking/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="18" column="116" lean-forward="true" selection-start-line="18" selection-start-column="116" selection-end-line="18" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cn/eight/homemaking/pojo/Employer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
+          <folding>
+            <element signature="e#2523#2524#0" expanded="true" />
+            <element signature="e#2553#2554#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Homemaking/ny/ywgl/gzxx_xg.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>

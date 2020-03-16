@@ -63,6 +63,81 @@ public class ManagerDao {
         }
     }
 
+    public Employer queryAllCustomer(String name){
+        String sql = "select * from employer where employer_name = ? ";
+        Connection con = DbPool.getConnection();
+        PreparedStatement pst =null;
+        BasicDao dao = new BasicDao();
+        ResultSet rs = null;
+        Employer employer = new Employer();
+        try{
+            pst = con.prepareStatement(sql);
+            rs= dao.execQuery(pst,name);
+                while (rs.next()&&rs!=null) {
+                    String company_name = Integer.valueOf(rs.getInt(2)).toString();
+                    String employer_name = rs.getString(3);
+                    String gender= rs.getString(4);
+                    String age = Integer.valueOf(rs.getString(5)).toString();
+                    String nation = rs.getString(6);
+                    String hometown = rs.getString(7);
+                    String education = rs.getString(8);
+                    String idnumber = rs.getString(9);
+                    String worker_unit = rs.getString(10);
+                    String profession = rs.getString(11);
+                    String contract = rs.getString(12);
+                    String period = rs.getString(13);
+                    String telephone = rs.getString(14);
+                    String house = rs.getString(15);
+                    String address = rs.getString(16);
+                    String service_address = rs.getString(17);
+                    String home_current_address = rs.getString(18);
+                    String home_people_number = rs.getString(19);
+                    String home_service = rs.getString(20);
+                    String home_size = rs.getString(21);
+                    String home_food = rs.getString(22);
+                    String home_other = rs.getString(23);
+                    String max_pay = Float.valueOf(rs.getFloat(24)).toString();
+                    String min_pay = Float.valueOf(rs.getFloat(25)).toString();
+                    String claim = rs.getString(26);
+                    String manager = rs.getString(27);
+                    String check_in_time = rs.getString(28);
+                    employer.setCompany_number(company_name);
+                    employer.setEmployer_name(employer_name);
+                    employer.setGender(gender);
+                    employer.setAge(age);
+                    employer.setNation(nation);
+                    employer.setHometown(hometown);
+                    employer.setEducation(education);
+                    employer.setIdnumber(idnumber);
+                    employer.setWorker_unit(worker_unit);
+                    employer.setProfession(profession);
+                    employer.setContract(contract);
+                    employer.setPeriod(period);
+                    employer.setTelephone(telephone);
+                    employer.setHouse(house);
+                    employer.setAddress(address);
+                    employer.setService_address(service_address);
+                    employer.setHome_current_address(home_current_address);
+                    employer.setHome_people_number(home_people_number);
+                    employer.setHome_service(home_service);
+                    employer.setHome_size(home_size);
+                    employer.setHome_food(home_food);
+                    employer.setHome_other(home_other);
+                    employer.setMax_pay(max_pay);
+                    employer.setMin_pay(min_pay);
+                    employer.setClaim(claim);
+                    employer.setManager(manager);
+                    employer.setCheck_in_time(check_in_time);
+                }
+            return employer;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            dao.releaseResource(con,rs,pst);
+        }
+        return null;
+    }
+
     public List<Employer> queryCustomerBycondition(Map<String,String> map) {
         String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_ from employer ";
         String str = "";
@@ -123,7 +198,6 @@ public class ManagerDao {
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
         ResultSet rs = null;
-
         List<Employer> list = new ArrayList<Employer>();
         try{
             pst = con.prepareStatement(sql);

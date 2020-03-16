@@ -39,4 +39,9 @@ public class ManagerServiceImp implements ManagerService {
     public List<Employer> queryAllEmployer() {
         return new ManagerDao().queryCustomer();
     }
+
+    @Override
+    public Employer check(String name) {
+        return new ManagerDao().queryAllCustomer(name);
+    }
 }

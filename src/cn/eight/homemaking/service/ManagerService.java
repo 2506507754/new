@@ -11,4 +11,6 @@ public interface ManagerService {
     List<Employer> queryCustomer(Map<String,String> map);
 
     List<Employer> queryAllEmployer();
+
+    Employer check(String name);
 }

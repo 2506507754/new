@@ -88,7 +88,7 @@
         <td align="center" nowrap>${employer.min_pay}-${employer.max_pay}</td>
         <td align="center" nowrap>${employer.status_}</td>
         <td align="center" nowrap>${employer.check_in_time}&nbsp; </td>
-        <td align="center" nowrap><a href="gzxx_ck.htm">查看</a> <a href="gzxx_xg.htm">修改</a> <a href="lsda.htm">历史档案</a></td>
+        <td align="center" nowrap><a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=check&name=${employer.employer_name}">查看</a> <a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=checkin&name=${employer.employer_name}">修改</a> <a href="lsda.htm">历史档案</a></td>
     </tr>
     </c:forEach>
 

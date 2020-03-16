@@ -35,7 +35,27 @@ public class ManageServlet extends HttpServlet {
             queryCustomer(request,response,session);
         }else if (reqType.equals("queryAllEmployer")){
             queryAllEmployer(request,response,session);
+        }else if(reqType.equals("check")){
+            check(request,response,session);
+        }else if(reqType.equals("checkin")){
+            checkin(request,response,session);
         }
+    }
+
+    private void checkin(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        ManagerService service = new ManagerServiceImp();
+        String name = request.getParameter("name");
+        Employer list = service.check(name);
+        session.setAttribute("queryCustomer",list);
+        response.sendRedirect("ny/ywgl/gzxx_xg.jsp");
+    }
+
+    private void check(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        ManagerService service = new ManagerServiceImp();
+        String name = request.getParameter("name");
+        Employer list = service.check(name);
+        session.setAttribute("queryCustomer",list);
+        response.sendRedirect("ny/ywgl/gzxx_ck.jsp");
     }
 
     private void queryAllEmployer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
@@ -130,9 +150,7 @@ public class ManageServlet extends HttpServlet {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String check_in_time = request.getParameter("textarea22");
         String company_number = (String)session.getAttribute("company_number");
-        Employer employer = new Employer(company_number,name,gender,age,nation,hometown,education,idnumber,worker_unit,profession,contract,period,telephone,house,
-                address,service_address,home_current_address,home_people_number,home_service,home_size,home_food,home_other,max_pay,min_pay,claStr,manager,check_in_time);
-
+        Employer employer = new Employer(company_number,name,gender,age,nation,hometown,education,idnumber,worker_unit,profession,contract,period,telephone,house,address,service_address,home_current_address,home_people_number,home_service,home_size,home_food,home_other,max_pay,min_pay,claStr,manager,check_in_time);
         ManagerService service = new ManagerServiceImp();
         service.addCustomer(employer);
         response.sendRedirect("manageSvl?reqType=queryAllEmployer");
