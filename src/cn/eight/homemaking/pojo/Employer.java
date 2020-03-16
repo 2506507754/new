@@ -1,9 +1,10 @@
 package cn.eight.homemaking.pojo;
 
 public class Employer {
+    private String company_number;
     private String employer_name;
     private String gender ;
-    private int age;
+    private String age;
     private String nation ;
     private String  hometown ;
     private String education ;
@@ -22,14 +23,20 @@ public class Employer {
     private String home_size ;
     private String home_food ;
     private String home_other ;
-    private float max_pay;
-    private float min_pay ;
+    private String max_pay;
+    private String min_pay ;
     private String claim ;
     private String  manager ;
     private String check_in_time ;
+    private String status_;
 
-    public Employer(String employer_name, String gender, int age, String nation, String hometown, String education, String idnumber, String worker_unit, String profession, String contract, String period, String telephone, String house, String address, String service_address, String home_current_address, String home_people_number, String home_service, String home_size, String home_food, String home_other, float max_pay, float min_pay, String claim, String manager, String check_in_time) {
+
+    public Employer() {
+    }
+
+    public Employer(String company_number, String employer_name, String gender, String age, String nation, String hometown, String education, String idnumber, String worker_unit, String profession, String contract, String period, String telephone, String house, String address, String service_address, String home_current_address, String home_people_number, String home_service, String home_size, String home_food, String home_other, String min_pay, String max_pay, String claim, String manager, String check_in_time) {
         this.employer_name = employer_name;
+        this.company_number = company_number;
         this.gender = gender;
         this.age = age;
         this.nation = nation;
@@ -57,6 +64,21 @@ public class Employer {
         this.check_in_time = check_in_time;
     }
 
+    public String getStatus_() {
+        return status_;
+    }
+
+    public void setStatus_(String status_) {
+        this.status_ = status_;
+    }
+
+    public String getCompany_number() {
+        return company_number;
+    }
+
+    public void setCompany_number(String company_number) {
+        this.company_number = company_number;
+    }
 
     public String getEmployer_name() {
         return employer_name;
@@ -74,11 +96,11 @@ public class Employer {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -226,19 +248,19 @@ public class Employer {
         this.home_other = home_other;
     }
 
-    public float getMax_pay() {
+    public String getMax_pay() {
         return max_pay;
     }
 
-    public void setMax_pay(float max_pay) {
+    public void setMax_pay(String max_pay) {
         this.max_pay = max_pay;
     }
 
-    public float getMin_pay() {
+    public String getMin_pay() {
         return min_pay;
     }
 
-    public void setMin_pay(float min_pay) {
+    public void setMin_pay(String min_pay) {
         this.min_pay = min_pay;
     }
 

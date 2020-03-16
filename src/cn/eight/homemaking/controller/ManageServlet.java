@@ -3,16 +3,18 @@ package cn.eight.homemaking.controller;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.service.ManagerService;
 import cn.eight.homemaking.service.ServiceImp.ManagerServiceImp;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet("/Homemaking/manageSvl")
 public class ManageServlet extends HttpServlet {
@@ -23,14 +25,44 @@ public class ManageServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String reqType = request.getParameter("reqType");
-        if (reqType.equals("addCustomer")){
-            addCustomer(request,response);
+        HttpSession session = request.getSession();
+        if (reqType.equals("openMain")){
+            session.setAttribute("company_number","1");
+            response.sendRedirect("ny/index.htm");
+        }else if (reqType.equals("addCustomer")){
+            addCustomer(request,response,session);
+        }else if (reqType.equals("queryCustomer")){
+            queryCustomer(request,response,session);
+        }else if (reqType.equals("queryAllEmployer")){
+            queryAllEmployer(request,response,session);
         }
     }
 
+    private void queryAllEmployer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        ManagerService service = new ManagerServiceImp();
+        List<Employer> list = service.queryAllEmployer();
+        session.setAttribute("queryCustomer",list);
+        response.sendRedirect("ny/ywgl/gzxx.jsp");
+    }
+
+    private void queryCustomer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        String name = request.getParameter("searchName");
+        String gender = request.getParameter("radio");
+        String status = request.getParameter("select");
+        String employmentPosition = request.getParameter("select2");
+        Map<String,String> map= new HashMap<String, String>();
+        map.put("employer_name",name);
+        map.put("gender",gender);
+        map.put("claim",employmentPosition);
+        map.put("status_",status);
+        ManagerService service = new ManagerServiceImp();
+        List<Employer> list = service.queryCustomer(map);
+        session.setAttribute("queryCustomer",list);
+        response.sendRedirect("ny/ywgl/gzxx.jsp");
+    }
 
 
-    private void addCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void addCustomer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
         String name = request.getParameter("textarea40");
         String gender = request.getParameter("radio");
         String age = request.getParameter("textarea");
@@ -52,8 +84,8 @@ public class ManageServlet extends HttpServlet {
         String home_size = request.getParameter("textarea17");
         String home_food = request.getParameter("textarea18");
         String home_other = request.getParameter("textarea19");
-        String max_pay = request.getParameter("textarea20");
-        String min_pay = request.getParameter("textarea23");
+        String min_pay = request.getParameter("textarea20");
+        String max_pay = request.getParameter("textarea23");
         String[] claim = request.getParameterValues("checkbox4");
         String claims = request.getParameter("textarea24");
         StringBuilder stringBuilder = new StringBuilder();
@@ -97,12 +129,12 @@ public class ManageServlet extends HttpServlet {
         String manager = request.getParameter("textarea21");
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String check_in_time = request.getParameter("textarea22");
-
-        Employer employer = new Employer(name,gender,Integer.valueOf(age),nation,hometown,education,idnumber,worker_unit,profession,contract,period,telephone,house,
-                address,service_address,home_current_address,home_people_number,home_service,home_size,home_food,home_other,Float.valueOf(max_pay),Float.valueOf(min_pay),claStr,manager,check_in_time);
+        String company_number = (String)session.getAttribute("company_number");
+        Employer employer = new Employer(company_number,name,gender,age,nation,hometown,education,idnumber,worker_unit,profession,contract,period,telephone,house,
+                address,service_address,home_current_address,home_people_number,home_service,home_size,home_food,home_other,max_pay,min_pay,claStr,manager,check_in_time);
 
         ManagerService service = new ManagerServiceImp();
         service.addCustomer(employer);
-        response.sendRedirect(request.getContextPath()+"index.htm");
+        response.sendRedirect("manageSvl?reqType=queryAllEmployer");
     }
 }

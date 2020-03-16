@@ -50,9 +50,9 @@
         <td width="10%" align="right" bgcolor="#FFFFFF">姓名：</td>
         <td width="15%" bgcolor="#FFFFFF"><input name="textarea40" type="text" id="textarea40" value="" size="15" class="pi"></td>
         <td width="10%" align="right" bgcolor="#FFFFFF">性别：</td>
-        <td width="17%" bgcolor="#FFFFFF"><input type="radio" name="radio" id="radio12" value="01">
+        <td width="17%" bgcolor="#FFFFFF"><input type="radio" name="radio" id="radio12" value="男">
             男
-            <input type="radio" name="radio" id="radio13" value="02">
+            <input type="radio" name="radio" id="radio13" value="女">
             女</td>
         <td width="10%" align="right" bgcolor="#FFFFFF">年龄：</td>
         <td width="13%" bgcolor="#FFFFFF"><input name="textarea" type="text" id="textarea" value="" size="15" class="pi"></td>

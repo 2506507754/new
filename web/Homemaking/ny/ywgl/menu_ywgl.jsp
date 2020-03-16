@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
@@ -110,12 +109,12 @@ body {
   <tr>
     <td  width="14"   class="Menu_OutTd"  id="menutd1">&nbsp;</td>
 	
-	<td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="grxx_cx.htm" target="main">�ù�����</a></td>
-    <td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="ddgl.htm" target="main"> �ù�����</a></td>
-    <td  width="70" nowrap id="menubar_5"   class="Menu_OutTd">|<a href="gzxx.htm" target="main"> �ͻ�����</a></td>
+	<td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="grxx_cx.htm" target="main">用工检索</a></td>
+    <td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="ddgl.htm" target="main"> 用工管理</a></td>
+    <td  width="70" nowrap id="menubar_5"   class="Menu_OutTd">|<a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=queryAllEmployer" target="main"> 客户管理</a></td>
     
-    <td width="70" nowrap  class="Menu_OutTd" id="menubar_10">| <a href="mrtz.htm" target="main">ÿ��֪ͨ</a> </td>
-     <td width="70" nowrap  class="Menu_OutTd" id="menubar_10">| <a href="message_list.html" target="main">����Ϣ</a> </td>
+    <td width="70" nowrap  class="Menu_OutTd" id="menubar_10">| <a href="mrtz.htm" target="main">每日通知</a> </td>
+     <td width="70" nowrap  class="Menu_OutTd" id="menubar_10">| <a href="message_list.html" target="main">短消息</a> </td>
     <td width="676"  nowrap align="right" class="Menu_OutTd"  >&nbsp;</td>
   </tr>
 </table>
