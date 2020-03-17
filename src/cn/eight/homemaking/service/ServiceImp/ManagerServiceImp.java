@@ -8,6 +8,15 @@ import java.util.List;
 import java.util.Map;
 
 public class ManagerServiceImp implements ManagerService {
+    int count;
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
     @Override
     public boolean addCustomer(Employer employer) {
         ManagerDao dao = new ManagerDao();
@@ -27,14 +36,21 @@ public class ManagerServiceImp implements ManagerService {
     }
 
     @Override
-    public List<Employer> queryCustomer(Map<String,String> map) {
+    public List<Employer> queryCustomer(Map<String,String> map,int page) {
         ManagerDao dao = new ManagerDao();
-        return dao.queryCustomerBycondition(map);
+        List<Employer> list = dao.queryCustomerBycondition(map, page);
+        int count1 = dao.queryCustomerByconditionCount(map);
+        setCount(count1);
+        return list;
     }
 
     @Override
-    public List<Employer> queryAllEmployer() {
-        return new ManagerDao().queryCustomer();
+    public List<Employer> queryAllEmployer(int page) {
+        ManagerDao dao = new ManagerDao();
+        List<Employer> list = dao.queryCustomer(page);
+        int count1 = dao.queryCustomerCount();
+        setCount(count1);
+        return list;
     }
 
     @Override
@@ -47,6 +63,8 @@ public class ManagerServiceImp implements ManagerService {
         ManagerDao dao = new ManagerDao();
         return dao.updateEmloyer(employer);
     }
+
+
 
 
 }

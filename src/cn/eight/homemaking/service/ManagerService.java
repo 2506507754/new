@@ -8,12 +8,13 @@ import java.util.Map;
 public interface ManagerService {
     boolean addCustomer(Employer employer);
 
-    List<Employer> queryCustomer(Map<String,String> map);
+    List<Employer> queryCustomer(Map<String,String> map,int page);
 
-    List<Employer> queryAllEmployer();
+    List<Employer> queryAllEmployer(int page);
 
     Employer check(String employer_number);
 
     boolean updateEmloyer(Employer employer);
+
 
 }

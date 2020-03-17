@@ -1,5 +1,6 @@
 package cn.eight.homemaking.controller;
 
+import cn.eight.homemaking.dao.ManagerDao;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.service.ManagerService;
 import cn.eight.homemaking.service.ServiceImp.ManagerServiceImp;
@@ -26,6 +27,7 @@ public class ManageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String reqType = request.getParameter("reqType");
         HttpSession session = request.getSession();
+        session.setAttribute("reqType","");
         if (reqType.equals("openMain")){
             session.setAttribute("company_number","1");
             response.sendRedirect("ny/index.htm");
@@ -41,7 +43,14 @@ public class ManageServlet extends HttpServlet {
             checkin(request,response,session);
         }else if(reqType.equals("updateEmployer")){
             updateEmployer(request,response,session);
+        }else if (reqType.equals("contract")){
+            queryContract(request,response,session);
         }
+    }
+
+    private void queryContract(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        String employer_number = request.getParameter("employer_number");
+        ManagerService service = new ManagerServiceImp();
     }
 
     private void updateEmployer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
@@ -94,27 +103,112 @@ public class ManageServlet extends HttpServlet {
         response.sendRedirect("ny/ywgl/gzxx_ck.jsp");
     }
 
+
     private void queryAllEmployer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
         ManagerService service = new ManagerServiceImp();
-        List<Employer> list = service.queryAllEmployer();
+        String page1 = request.getParameter("page");
+        int page = 0;
+        if (page1 != null) {
+            String pageSelect = request.getParameter("paginationAction");
+            String pageLast = request.getParameter("paginationAction2");
+            if (page1.equals("first")) {
+                page = 0;
+            } else if (page1.equals("old")) {
+                if (Integer.valueOf(pageSelect) != 0) {
+                    page = Integer.valueOf(pageSelect) - 1;
+                } else {
+                    page = 0;
+                }
+            } else if (page1.equals("new")) {
+                if (Integer.valueOf(pageSelect) != Integer.valueOf(pageLast)-1) {
+                    page = Integer.valueOf(pageSelect) + 1;
+                } else {
+                    page = Integer.valueOf(pageSelect);
+                }
+            } else if (page1.equals("last")) {
+                page = Integer.valueOf(pageLast)-1;
+            } else if (page1.equals("jump")) {
+                String pageSelect1 = request.getParameter("pageSelect");
+                if (pageSelect1 != "") {
+                    if (Integer.valueOf(pageSelect1) <= Integer.valueOf(pageLast)) {
+                        int integer = Integer.valueOf(pageSelect1) - 1;
+                        page = integer;
+                    }
+                }
+            }
+        }
+        List<Employer> list = service.queryAllEmployer(page*5);
+        int c = ((ManagerServiceImp) service).getCount();
         session.setAttribute("queryCustomer",list);
+        session.setAttribute("page",page);
+        session.setAttribute("reqType","queryAllEmployer");
+        session.setAttribute("count", c);
         response.sendRedirect("ny/ywgl/gzxx.jsp");
     }
 
     private void queryCustomer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
-        String name = request.getParameter("searchName");
-        String gender = request.getParameter("radio");
-        String status = request.getParameter("select");
-        String employmentPosition = request.getParameter("select2");
-        Map<String,String> map= new HashMap<String, String>();
-        map.put("employer_name",name);
-        map.put("gender",gender);
-        map.put("claim",employmentPosition);
-        map.put("status_",status);
-        ManagerService service = new ManagerServiceImp();
-        List<Employer> list = service.queryCustomer(map);
-        session.setAttribute("queryCustomer",list);
-        response.sendRedirect("ny/ywgl/gzxx.jsp");
+        String page1 = request.getParameter("page");
+        int page = 0;
+        if (page1 != null) {
+            String pageSelect = request.getParameter("paginationAction");
+            String pageLast = request.getParameter("paginationAction2");
+            if (page1.equals("first")) {
+                page = 0;
+            } else if (page1.equals("old")) {
+                if (Integer.valueOf(pageSelect) != 0) {
+                    page = Integer.valueOf(pageSelect) - 1;
+                } else {
+                    page = 0;
+                }
+            } else if (page1.equals("new")) {
+                if (Integer.valueOf(pageSelect) != Integer.valueOf(pageLast)) {
+                    page = Integer.valueOf(pageSelect) + 1;
+                } else {
+                    page = Integer.valueOf(pageLast);
+                }
+            } else if (page1.equals("last")) {
+                page = Integer.valueOf(pageLast);
+            } else if (page1.equals("jump")) {
+                String pageSelect1 = request.getParameter("pageSelect");
+                if (pageSelect1 != "") {
+                    if (pageSelect1 != "0") {
+                        int integer = Integer.valueOf(pageSelect1) - 1;
+                        page = integer;
+                    } else {
+                        page = Integer.valueOf(pageSelect1);
+                    }
+                }
+            }
+
+            Map<String, String>map = (HashMap<String, String>)session.getAttribute("map");
+            ManagerService service = new ManagerServiceImp();
+            List<Employer> list = service.queryCustomer(map, page * 5);
+            int c = ((ManagerServiceImp) service).getCount();
+            session.setAttribute("count", c);
+            session.setAttribute("page", page);
+            session.setAttribute("reqType", "queryCustomer");
+            session.setAttribute("queryCustomer", list);
+            response.sendRedirect("ny/ywgl/gzxx.jsp");
+        } else {
+            String name = request.getParameter("searchName");
+            String gender = request.getParameter("radio");
+            String status = request.getParameter("select");
+            String employmentPosition = request.getParameter("select2");
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("employer_name", name);
+            map.put("gender", gender);
+            map.put("claim", employmentPosition);
+            map.put("status_", status);
+            ManagerService service = new ManagerServiceImp();
+            List<Employer> list = service.queryCustomer(map, page * 5);
+            int c = ((ManagerServiceImp) service).getCount();
+            session.setAttribute("count", c);
+            session.setAttribute("page", page);
+            session.setAttribute("reqType", "queryCustomer");
+            session.setAttribute("queryCustomer", list);
+            session.setAttribute("map",map);
+            response.sendRedirect("ny/ywgl/gzxx.jsp");
+        }
     }
 
 
@@ -179,7 +273,6 @@ public class ManageServlet extends HttpServlet {
                     }
                 }
             }
-
         }
         String claStr=stringBuilder.toString()+claims;
         String manager = request.getParameter("textarea21");

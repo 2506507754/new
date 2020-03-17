@@ -141,11 +141,10 @@ public class ManagerDao {
         return null;
     }
 
-    public List<Employer> queryCustomerBycondition(Map<String,String> map) {
+    public List<Employer> queryCustomerBycondition(Map<String,String> map,int page) {
         String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_,employer_number from employer ";
         String str = "";
         Set<String> set = map.keySet();
-
         for (String s : set) {
             if (!(map.get(s)==""||map.get(s)==null||map.get(s).equals("请选择"))){
                 str=str+s+" like"+" '%"+map.get(s)+"%'"+" and ";
@@ -153,19 +152,18 @@ public class ManagerDao {
         }
         if (str != ""){
             int len = str.lastIndexOf("a");
-            str="where "+str.substring(0,len)+"order by check_in_time desc limit 0,5";
+            str="where "+str.substring(0,len)+"order by check_in_time desc limit ?,5";
         }else {
-            str="order by check_in_time desc limit 0,5";
+            str="order by check_in_time desc limit ?,5";
         }
         Connection con = DbPool.getConnection();
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
         ResultSet rs = null;
-
         List<Employer> list = new ArrayList<Employer>();
         try{
             pst = con.prepareStatement(sql+str);
-            rs= dao.execQuery(pst);
+            rs= dao.execQuery(pst,page);
             while (rs.next()&&rs!=null){
                 Employer employer = new Employer();
                 String name = rs.getString(1);
@@ -197,8 +195,43 @@ public class ManagerDao {
         return null;
     }
 
-    public List<Employer> queryCustomer() {
-        String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_,employer_number from employer order by check_in_time desc limit 0,5";
+    public int queryCustomerByconditionCount(Map<String,String> map) {
+        String sql="select employer_name from employer ";
+        String str = "";
+        Set<String> set = map.keySet();
+        for (String s : set) {
+            if (!(map.get(s)==""||map.get(s)==null||map.get(s).equals("请选择"))){
+                str=str+s+" like"+" '%"+map.get(s)+"%'"+" and ";
+            }
+        }
+        if (str != ""){
+            int len = str.lastIndexOf("a");
+            str="where "+str.substring(0,len)+"";
+        }
+        Connection con = DbPool.getConnection();
+        PreparedStatement pst =null;
+        BasicDao dao = new BasicDao();
+        ResultSet rs = null;
+        List<Employer> list = new ArrayList<Employer>();
+        try{
+            int c = 0;
+            pst = con.prepareStatement(sql+str);
+            rs= dao.execQuery(pst);
+            while (rs.next()&&rs!=null){
+                c++;
+            }
+            return c;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            dao.releaseResource(con,rs,pst);
+        }
+        return 0;
+    }
+
+
+    public List<Employer> queryCustomer(int page) {
+        String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_,employer_number from employer order by check_in_time desc limit ?,5";
         Connection con = DbPool.getConnection();
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
@@ -206,7 +239,7 @@ public class ManagerDao {
         List<Employer> list = new ArrayList<Employer>();
         try{
             pst = con.prepareStatement(sql);
-            rs= dao.execQuery(pst);
+            rs= dao.execQuery(pst,page);
             while (rs.next()&&rs!=null){
                 Employer employer = new Employer();
                 String name = rs.getString(1);
@@ -236,6 +269,30 @@ public class ManagerDao {
             dao.releaseResource(con,rs,pst);
         }
         return null;
+    }
+
+    public int queryCustomerCount() {
+        String sql="select * from employer";
+        Connection con = DbPool.getConnection();
+        PreparedStatement pst =null;
+        BasicDao dao = new BasicDao();
+        ResultSet rs = null;
+        List<Employer> list = new ArrayList<Employer>();
+
+        try{
+            pst = con.prepareStatement(sql);
+            rs= dao.execQuery(pst);
+            int c = 0;
+            while (rs.next()&&rs!=null){
+                c++;
+            }
+            return c;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            dao.releaseResource(con,rs,pst);
+        }
+        return 0;
     }
 
     public boolean updateEmloyer(Employer employer) {

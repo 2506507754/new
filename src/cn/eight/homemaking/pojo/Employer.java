@@ -30,6 +30,8 @@ public class Employer {
     private String  manager ;
     private String check_in_time ;
     private String status_;
+    private int page = 0;
+    private int count;
 
 
     public Employer() {
@@ -91,6 +93,22 @@ public class Employer {
         this.claim = claim;
         this.manager = manager;
         this.check_in_time = check_in_time;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public String getEmployer_number() {
