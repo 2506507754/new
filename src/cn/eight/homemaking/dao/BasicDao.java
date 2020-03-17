@@ -21,23 +21,22 @@ public class BasicDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
      return rs;
  }
     //修改
-    public void execUpdate(PreparedStatement pst,Object...params)  {
+    public boolean execUpdate(PreparedStatement pst,Object...params)  {
      try {
          if (params!=null){
              for (int i = 0; i < params.length; i++) {
                  pst.setObject(i+1,params[i]);
              }
          }
-         pst.executeUpdate();
+         boolean execute = pst.execute();
+         return execute;
      } catch (SQLException e) {
          e.printStackTrace();
      }
-
+    return false;
     }
 
     //释放资源

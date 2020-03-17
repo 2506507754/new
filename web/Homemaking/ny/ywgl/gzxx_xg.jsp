@@ -38,12 +38,14 @@
 <br/>
 
 
+<form action="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=updateEmployer" method="post">
   <table width="96%" height="80" border="0" align="center" cellpadding="0" cellspacing="0" >
     <tr>
       <td width="67%" height="40" align="center" nowrap class="MENU_line1">家政服务消费者资料登记表</td>
     </tr>
     <tr>
       <td align="right" nowrap class="MENU_line1 STYLE2">档案编号：GZ20006300223</td>
+        <input type="hidden" name="employer_number" value="${sessionScope.queryCustomer.employer_number}">
     </tr>
   </table>
 <br>
@@ -139,11 +141,12 @@
   </table>
 <table width="96%" height="30" border="0" align="center" cellpadding="0" cellspacing="0" >
   <tr>
-    <td width="67%" align="center" class="text" nowrap><input type="submit" name="searchbtn3" value="保  存" class="button_new" onClick="javascript:location.href='gzxx.htm'">
+    <td width="67%" align="center" class="text" nowrap><input type="submit" name="searchbtn3" value="保  存" class="button_new" >
       <input type="submit" name="searchbtn3" value="返  回" class="button_new"onClick="javascript:location.href='gzxx.htm'" >
       <input type="hidden" name="mod" value="no">
     &nbsp;&nbsp; </td>
   </tr>
 </table>
+</form>
 </body>
 </html>

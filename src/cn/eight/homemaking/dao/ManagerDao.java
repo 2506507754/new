@@ -14,12 +14,11 @@ import java.util.Set;
 
 
 public class ManagerDao {
-    public void addCustomer(Employer employer) {
+    public boolean addCustomer(Employer employer) {
         String sql="INSERT INTO employer(company_number,employer_name,gender,age,nation,hometown,education,idnumber,worker_unit,profession,contract,period,telephone,house,address,service_address,home_current_address,home_people_number,home_service,home_size,home_food,home_other,max_pay,min_pay,claim,manager,check_in_time,status_) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         Connection con = DbPool.getConnection();
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
-
         try {
             pst = con.prepareStatement(sql);
             String company_number = employer.getCompany_number();
@@ -55,16 +54,18 @@ public class ManagerDao {
             String min_pay = employer.getMin_pay();
             String manager = employer.getManager();
             String check_in_time = employer.getCheck_in_time();
-            dao.execUpdate(pst,company_number,name,gender,age,nation,hometown,education,idnumber,worker_unit,profession,contract,period,telephone,house,address,service_address,home_current_address,home_people_number,home_service,home_size,home_food,home_other,max_pay,min_pay,claim,manager,check_in_time,status_);
+            boolean b = dao.execUpdate(pst, company_number, name, gender, age, nation, hometown, education, idnumber, worker_unit, profession, contract, period, telephone, house, address, service_address, home_current_address, home_people_number, home_service, home_size, home_food, home_other, max_pay, min_pay, claim, manager, check_in_time, status_);
+            return b;
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
             dao.releaseResource(con,null,pst);
         }
+        return false;
     }
 
-    public Employer queryAllCustomer(String name){
-        String sql = "select * from employer where employer_name = ? ";
+    public Employer queryAllCustomer(String number){
+        String sql = "select * from employer where employer_number = ? ";
         Connection con = DbPool.getConnection();
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
@@ -72,9 +73,10 @@ public class ManagerDao {
         Employer employer = new Employer();
         try{
             pst = con.prepareStatement(sql);
-            rs= dao.execQuery(pst,name);
+            rs= dao.execQuery(pst,number);
                 while (rs.next()&&rs!=null) {
-                    String company_name = Integer.valueOf(rs.getInt(2)).toString();
+                    String employer_number = Integer.valueOf(rs.getInt(1)).toString();
+                    String company_number = Integer.valueOf(rs.getInt(2)).toString();
                     String employer_name = rs.getString(3);
                     String gender= rs.getString(4);
                     String age = Integer.valueOf(rs.getString(5)).toString();
@@ -101,7 +103,8 @@ public class ManagerDao {
                     String claim = rs.getString(26);
                     String manager = rs.getString(27);
                     String check_in_time = rs.getString(28);
-                    employer.setCompany_number(company_name);
+                    employer.setEmployer_number(employer_number);
+                    employer.setCompany_number(company_number);
                     employer.setEmployer_name(employer_name);
                     employer.setGender(gender);
                     employer.setAge(age);
@@ -139,7 +142,7 @@ public class ManagerDao {
     }
 
     public List<Employer> queryCustomerBycondition(Map<String,String> map) {
-        String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_ from employer ";
+        String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_,employer_number from employer ";
         String str = "";
         Set<String> set = map.keySet();
 
@@ -173,6 +176,8 @@ public class ManagerDao {
                 Float max_pay = rs.getFloat(6);
                 String check_in_time = rs.getString(7);
                 String status_ = rs.getString(8);
+                String employer_number = Integer.valueOf(rs.getInt(9)).toString();
+                employer.setEmployer_number(employer_number);
                 employer.setStatus_(status_);
                 employer.setEmployer_name(name);
                 employer.setGender(gender);
@@ -193,7 +198,7 @@ public class ManagerDao {
     }
 
     public List<Employer> queryCustomer() {
-        String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_ from employer order by check_in_time desc limit 0,5";
+        String sql="select employer_name,gender,age,claim,min_pay,max_pay,check_in_time,status_,employer_number from employer order by check_in_time desc limit 0,5";
         Connection con = DbPool.getConnection();
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
@@ -212,6 +217,8 @@ public class ManagerDao {
                 Float max_pay = rs.getFloat(6);
                 String check_in_time = rs.getString(7);
                 String status_ = rs.getString(8);
+                String employer_number = Integer.valueOf(rs.getInt(9)).toString();
+                employer.setEmployer_number(employer_number);
                 employer.setStatus_(status_);
                 employer.setEmployer_name(name);
                 employer.setGender(gender);
@@ -230,4 +237,55 @@ public class ManagerDao {
         }
         return null;
     }
+
+    public boolean updateEmloyer(Employer employer) {
+        String sql="update employer set employer_name = ?,gender = ?,age = ?,nation = ?,hometown = ?,education = ?,idnumber = ?,worker_unit = ?,profession = ?,contract = ?,period = ?,telephone = ?,house = ?,address = ?,service_address = ?,home_current_address = ?,home_people_number = ?,home_service = ?,home_size = ?,home_food = ?,home_other = ?,claim = ?,manager = ?,check_in_time = ?,status_ = ? where employer_number = ?";
+        Connection con = DbPool.getConnection();
+        PreparedStatement pst =null;
+        BasicDao dao = new BasicDao();
+        try {
+            pst = con.prepareStatement(sql);
+            String employer_number = employer.getEmployer_number();
+            String claim = employer.getClaim();
+            String name = employer.getEmployer_name();
+            String gender = employer.getGender();
+            String age = employer.getAge();
+            String nation = employer.getNation();
+            String hometown = employer.getHometown();
+            String education = employer.getEducation();
+            String idnumber = employer.getIdnumber();
+            String worker_unit = employer.getWorker_unit();
+            String profession = employer.getProfession();
+            String contract = employer.getContract();
+            String status_ = null;
+            if (contract==""){
+                status_ = "未雇佣";
+            }else {
+                status_="已雇佣";
+            }
+            String period = employer.getPeriod();
+            String telephone = employer.getTelephone();
+            String house = employer.getHouse();
+            String address = employer.getAddress();
+            String service_address = employer.getService_address();
+            String home_current_address = employer.getHome_current_address();
+            String home_people_number = employer.getHome_people_number();
+            String home_service = employer.getHome_service();
+            String home_size = employer.getHome_size();
+            String home_food = employer.getHome_food();
+            String home_other = employer.getHome_other();
+            String max_pay = employer.getMax_pay();
+            String min_pay = employer.getMin_pay();
+            String manager = employer.getManager();
+            String check_in_time = employer.getCheck_in_time();
+            boolean b = dao.execUpdate(pst,  name, gender, age, nation, hometown, education, idnumber, worker_unit, profession, contract, period, telephone, house, address, service_address, home_current_address, home_people_number, home_service, home_size, home_food, home_other, claim, manager, check_in_time, status_,employer_number);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            dao.releaseResource(con,null,pst);
+        }
+        return false;
+    }
+
+
 }

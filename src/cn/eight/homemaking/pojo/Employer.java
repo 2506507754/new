@@ -1,6 +1,7 @@
 package cn.eight.homemaking.pojo;
 
 public class Employer {
+    private String employer_number;
     private String company_number;
     private String employer_name;
     private String gender ;
@@ -64,6 +65,41 @@ public class Employer {
         this.check_in_time = check_in_time;
     }
 
+    public Employer(String company_number, String employer_name, String gender, String age, String nation, String hometown, String education, String idnumber, String worker_unit, String profession, String contract, String period, String telephone, String house, String address, String service_address, String home_current_address, String home_people_number, String home_service, String home_size, String home_food, String home_other, String claim, String manager, String check_in_time) {
+        this.employer_name = employer_name;
+        this.company_number = company_number;
+        this.gender = gender;
+        this.age = age;
+        this.nation = nation;
+        this.hometown = hometown;
+        this.education = education;
+        this.idnumber = idnumber;
+        this.worker_unit = worker_unit;
+        this.profession = profession;
+        this.contract = contract;
+        this.period = period;
+        this.telephone = telephone;
+        this.house = house;
+        this.address = address;
+        this.service_address = service_address;
+        this.home_current_address = home_current_address;
+        this.home_people_number = home_people_number;
+        this.home_service = home_service;
+        this.home_size = home_size;
+        this.home_food = home_food;
+        this.home_other = home_other;
+        this.claim = claim;
+        this.manager = manager;
+        this.check_in_time = check_in_time;
+    }
+
+    public String getEmployer_number() {
+        return employer_number;
+    }
+
+    public void setEmployer_number(String employer_number) {
+        this.employer_number = employer_number;
+    }
     public String getStatus_() {
         return status_;
     }
@@ -287,4 +323,6 @@ public class Employer {
     public void setCheck_in_time(String check_in_time) {
         this.check_in_time = check_in_time;
     }
+
+
 }

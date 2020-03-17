@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class ManagerServiceImp implements ManagerService {
     @Override
-    public void addCustomer(Employer employer) {
+    public boolean addCustomer(Employer employer) {
         ManagerDao dao = new ManagerDao();
         if (employer.getAge()==""){
             employer.setAge(null);
@@ -20,13 +20,10 @@ public class ManagerServiceImp implements ManagerService {
         if (employer.getMin_pay()==""){
             employer.setMin_pay(null);
         }
-        if (employer.getPeriod()!=""){
-            int month = Integer.valueOf(employer.getPeriod())*60*60*24*30;
-            employer.setPeriod(month+"");
-        }
         if (employer.getCheck_in_time()!="") {
-            dao.addCustomer(employer);
+            return dao.addCustomer(employer);
         }
+        return false;
     }
 
     @Override
@@ -41,7 +38,15 @@ public class ManagerServiceImp implements ManagerService {
     }
 
     @Override
-    public Employer check(String name) {
-        return new ManagerDao().queryAllCustomer(name);
+    public Employer check(String employer_number) {
+        return new ManagerDao().queryAllCustomer(employer_number);
     }
+
+    @Override
+    public boolean updateEmloyer(Employer employer) {
+        ManagerDao dao = new ManagerDao();
+        return dao.updateEmloyer(employer);
+    }
+
+
 }

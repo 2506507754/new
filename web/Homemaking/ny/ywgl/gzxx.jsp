@@ -79,6 +79,7 @@
         <td width="10%" align="center" nowrap id=".submit_date" ><strong>操作</strong></td>
     </tr>
     <c:forEach items="${sessionScope.queryCustomer}" var="employer" varStatus="status">
+
     <tr align="center" class="td2"  onmouseover="javascript:changeBgColorOnMouseOver(this);" onMouseOut="javascript:changeBgColorOnMouseOut(this);" onDblClick="doDBClick('bl.htm',true,'2');">
         <td nowrap align="center" width="3%">${status.count}</td>
         <td align="center" nowrap>${employer.employer_name}</td>
@@ -88,7 +89,7 @@
         <td align="center" nowrap>${employer.min_pay}-${employer.max_pay}</td>
         <td align="center" nowrap>${employer.status_}</td>
         <td align="center" nowrap>${employer.check_in_time}&nbsp; </td>
-        <td align="center" nowrap><a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=check&name=${employer.employer_name}">查看</a> <a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=checkin&name=${employer.employer_name}">修改</a> <a href="lsda.htm">历史档案</a></td>
+        <td align="center" nowrap><a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=check&employer_number=${employer.employer_number}">查看</a> <a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=checkin&employer_number=${employer.employer_number}">修改</a> <a href="lsda.htm">历史档案</a></td>
     </tr>
     </c:forEach>
 

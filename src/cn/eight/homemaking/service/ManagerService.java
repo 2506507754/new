@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 public interface ManagerService {
-    void addCustomer(Employer employer);
+    boolean addCustomer(Employer employer);
 
     List<Employer> queryCustomer(Map<String,String> map);
 
     List<Employer> queryAllEmployer();
 
-    Employer check(String name);
+    Employer check(String employer_number);
+
+    boolean updateEmloyer(Employer employer);
+
 }
