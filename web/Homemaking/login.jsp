@@ -9,7 +9,7 @@
         }
         BODY {
             MARGIN: 0px;
-            background-image: url(ny/IMAGE/l_bg.jpg);
+            background-image: url(ny/image/l_bg.jpg);
             background-repeat: repeat-x;
         }
         .text {

@@ -1,6 +1,7 @@
 package cn.eight.homemaking.controller;
 
 import cn.eight.homemaking.dao.ManagerDao;
+import cn.eight.homemaking.pojo.Contract;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.service.ManagerService;
 import cn.eight.homemaking.service.ServiceImp.ManagerServiceImp;
@@ -48,9 +49,50 @@ public class ManageServlet extends HttpServlet {
         }
     }
 
-    private void queryContract(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+    private void queryContract(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
         String employer_number = request.getParameter("employer_number");
         ManagerService service = new ManagerServiceImp();
+        String page1 = request.getParameter("page");
+        int page = 0;
+        if (page1 != null) {
+            String pageSelect = request.getParameter("paginationAction");
+            String pageLast = request.getParameter("paginationAction2");
+            if (page1.equals("first")) {
+                page = 0;
+            } else if (page1.equals("old")) {
+                if (Integer.valueOf(pageSelect) != 0) {
+                    page = Integer.valueOf(pageSelect) - 1;
+                } else {
+                    page = 0;
+                }
+            } else if (page1.equals("new")) {
+                if (Integer.valueOf(pageSelect) != Integer.valueOf(pageLast)-1) {
+                    page = Integer.valueOf(pageSelect) + 1;
+                } else {
+                    page = Integer.valueOf(pageSelect);
+                }
+            } else if (page1.equals("last")) {
+                page = Integer.valueOf(pageLast)-1;
+            } else if (page1.equals("jump")) {
+                String pageSelect1 = request.getParameter("pageSelect");
+                if (pageSelect1 != "") {
+                    if (Integer.valueOf(pageSelect1) <= Integer.valueOf(pageLast)) {
+                        int integer = Integer.valueOf(pageSelect1) - 1;
+                        page = integer;
+                    }
+                }
+            }
+        }
+        List<Contract> list = service.queryContract(employer_number, 0);
+        int count = ((ManagerServiceImp) service).getCount();
+        Employer employer = service.check(employer_number);
+        session.setAttribute("reqType","contract");
+        session.setAttribute("page",page);
+        session.setAttribute("count", count);
+        session.setAttribute("Customer",employer);
+        session.setAttribute("contract",list);
+        session.setAttribute("count",count);
+        response.sendRedirect("ny/ywgl/lsda.jsp");
     }
 
     private void updateEmployer(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {

@@ -1,5 +1,6 @@
 package cn.eight.homemaking.service;
 
+import cn.eight.homemaking.pojo.Contract;
 import cn.eight.homemaking.pojo.Employer;
 
 import java.util.List;
@@ -17,4 +18,5 @@ public interface ManagerService {
     boolean updateEmloyer(Employer employer);
 
 
+    List<Contract> queryContract(String employer_number, int page);
 }

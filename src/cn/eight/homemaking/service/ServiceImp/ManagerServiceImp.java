@@ -1,6 +1,7 @@
 package cn.eight.homemaking.service.ServiceImp;
 
 import cn.eight.homemaking.dao.ManagerDao;
+import cn.eight.homemaking.pojo.Contract;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.service.ManagerService;
 
@@ -64,7 +65,14 @@ public class ManagerServiceImp implements ManagerService {
         return dao.updateEmloyer(employer);
     }
 
-
+    @Override
+    public List<Contract> queryContract(String employer_number, int page) {
+        ManagerDao dao = new ManagerDao();
+        List<Contract> contracts = dao.queryContract(employer_number, page);
+        int count= dao.queryContractByCount(employer_number);
+        setCount(count);
+        return contracts;
+    }
 
 
 }

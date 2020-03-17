@@ -1,12 +1,10 @@
 package cn.eight.homemaking.dao;
 
+import cn.eight.homemaking.pojo.Contract;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.util.DbPool;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -345,4 +343,60 @@ public class ManagerDao {
     }
 
 
+    public List<Contract> queryContract(String employer_number,int page) {
+        String sql = "select * from contract where employer_number = ? order by check_in_time desc limit ?,5";
+        Connection con = DbPool.getConnection();
+        PreparedStatement pst = null;
+        BasicDao dao = new BasicDao();
+        ResultSet rs = null;
+        List<Contract> list = new ArrayList<Contract>();
+        try {
+            pst = con.prepareStatement(sql);
+            rs = new BasicDao().execQuery(pst, employer_number, page);
+            while (rs.next() && rs != null) {
+                int contract_number = rs.getInt(1);
+                int company_number = rs.getInt(2);
+                int e_number = rs.getInt(3);
+                int worker_number = rs.getInt(4);
+                int manager_number = rs.getInt(5);
+                String check_in_time = rs.getString(6);
+                String period = rs.getString(7);
+                String status_ = rs.getString(8);
+                int pay = rs.getInt(9);
+                String employment_type = rs.getString(10);
+                int referral_fee = rs.getInt(11);
+                String closing_date = rs.getString(12);
+                Contract contract = new Contract(Integer.valueOf(contract_number).toString(), Integer.valueOf(company_number).toString(), Integer.valueOf(e_number).toString(), Integer.valueOf(worker_number).toString(), Integer.valueOf(manager_number).toString(), check_in_time, period, status_, Integer.valueOf(pay).toString(), employment_type, Integer.valueOf(referral_fee).toString(), closing_date);
+                list.add(contract);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dao.releaseResource(con, rs, pst);
+        }
+        return null;
+    }
+
+    public int queryContractByCount(String employer_number) {
+        String sql = "select * from contract where employer_number = ? ";
+        Connection con = DbPool.getConnection();
+        PreparedStatement pst = null;
+        BasicDao dao = new BasicDao();
+        ResultSet rs = null;
+        try {
+            pst = con.prepareStatement(sql);
+            rs = new BasicDao().execQuery(pst, employer_number);
+            int i = 0;
+            while (rs.next() && rs != null) {
+                i++;
+            }
+            return i;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            dao.releaseResource(con, rs, pst);
+        }
+        return 0;
+    }
 }

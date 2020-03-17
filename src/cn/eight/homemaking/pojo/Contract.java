@@ -1,6 +1,6 @@
 package cn.eight.homemaking.pojo;
 
-public class contract {
+public class Contract {
     private String contract_number;
     private String company_number;
     private String employer_number;
@@ -14,7 +14,7 @@ public class contract {
     private String referral_fee;
     private String colsing_date;
 
-    public contract(String contract_number, String company_number, String employer_number, String worker_number, String manager_number, String check_in_time, String period, String status_, String pay, String employment_type, String referral_fee, String colsing_date) {
+    public Contract(String contract_number, String company_number, String employer_number, String worker_number, String manager_number, String check_in_time, String period, String status_, String pay, String employment_type, String referral_fee, String colsing_date) {
         this.contract_number = contract_number;
         this.company_number = company_number;
         this.employer_number = employer_number;

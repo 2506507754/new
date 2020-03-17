@@ -32,8 +32,6 @@ public class Employer {
     private String status_;
     private int page = 0;
     private int count;
-
-
     public Employer() {
     }
 
