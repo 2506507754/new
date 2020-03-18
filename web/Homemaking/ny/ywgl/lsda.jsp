@@ -90,14 +90,14 @@ function doDBClick(url,operator,type) {
       <c:forEach items="${sessionScope.contract}" var="contract" varStatus="number">
           <tr align="center" class="td2" onmouseover="javascript:changeBgColorOnMouseOver(this);" onMouseOut="javascript:changeBgColorOnMouseOut(this);" onDblClick="doDBClick('bl.htm',true,'2');">
               <td nowrap align="center" width="3%">${number.count}</td>
-              <td align="center" nowrap>王月华</td>
+              <td align="center" nowrap>${contract.worker_name}</td>
               <td height="14" align="center" nowrap>${contract.worker_number}</td>
-              <td align="center" nowrap>${contract.referral_fee}</td>
+              <td align="center" nowrap>${contract.fee}</td>
+              <td align="center" nowrap>${contract.entry_time}</td>
               <td align="center" nowrap>${contract.check_in_time}</td>
-              <td align="center" nowrap>2009-02-24</td>
-              <td align="center" nowrap>${contract.employment_type}</td>
+              <td align="center" nowrap>${contract.employement_type}</td>
               <td align="center" nowrap>${contract.pay}</td>
-              <td align="center" nowrap>2010-02-22&nbsp;</td>
+              <td align="center" nowrap>${contract.closeing_date}&nbsp;</td>
               <td align="center" nowrap>&nbsp;</td>
           </tr>
       </c:forEach>

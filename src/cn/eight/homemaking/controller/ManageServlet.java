@@ -2,6 +2,7 @@ package cn.eight.homemaking.controller;
 
 import cn.eight.homemaking.dao.ManagerDao;
 import cn.eight.homemaking.pojo.Contract;
+import cn.eight.homemaking.pojo.ContractLsda;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.service.ManagerService;
 import cn.eight.homemaking.service.ServiceImp.ManagerServiceImp;
@@ -83,7 +84,7 @@ public class ManageServlet extends HttpServlet {
                 }
             }
         }
-        List<Contract> list = service.queryContract(employer_number, 0);
+        List<ContractLsda> list = service.queryContract(employer_number, 0);
         int count = ((ManagerServiceImp) service).getCount();
         Employer employer = service.check(employer_number);
         session.setAttribute("reqType","contract");

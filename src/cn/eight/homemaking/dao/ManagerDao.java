@@ -1,6 +1,7 @@
 package cn.eight.homemaking.dao;
 
 import cn.eight.homemaking.pojo.Contract;
+import cn.eight.homemaking.pojo.ContractLsda;
 import cn.eight.homemaking.pojo.Employer;
 import cn.eight.homemaking.util.DbPool;
 
@@ -18,6 +19,7 @@ public class ManagerDao {
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
         try {
+            con.setAutoCommit(false);
             pst = con.prepareStatement(sql);
             String company_number = employer.getCompany_number();
             String claim = employer.getClaim();
@@ -53,6 +55,7 @@ public class ManagerDao {
             String manager = employer.getManager();
             String check_in_time = employer.getCheck_in_time();
             boolean b = dao.execUpdate(pst, company_number, name, gender, age, nation, hometown, education, idnumber, worker_unit, profession, contract, period, telephone, house, address, service_address, home_current_address, home_people_number, home_service, home_size, home_food, home_other, max_pay, min_pay, claim, manager, check_in_time, status_);
+            con.commit();
             return b;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -299,6 +302,7 @@ public class ManagerDao {
         PreparedStatement pst =null;
         BasicDao dao = new BasicDao();
         try {
+            con.setAutoCommit(false);
             pst = con.prepareStatement(sql);
             String employer_number = employer.getEmployer_number();
             String claim = employer.getClaim();
@@ -334,6 +338,7 @@ public class ManagerDao {
             String manager = employer.getManager();
             String check_in_time = employer.getCheck_in_time();
             boolean b = dao.execUpdate(pst,  name, gender, age, nation, hometown, education, idnumber, worker_unit, profession, contract, period, telephone, house, address, service_address, home_current_address, home_people_number, home_service, home_size, home_food, home_other, claim, manager, check_in_time, status_,employer_number);
+            con.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
@@ -343,31 +348,27 @@ public class ManagerDao {
     }
 
 
-    public List<Contract> queryContract(String employer_number,int page) {
-        String sql = "select * from contract where employer_number = ? order by check_in_time desc limit ?,5";
+    public List<ContractLsda> queryContract(String employer_number,int page) {
+        String sql = "select w.worker_name,w.worker_number,c.referral_fee,w.entry_time,c.check_in_time,c.employment_type,c.pay,c.closing_date from employer e,worker w,contract c where e.employer_number = c.employer_number and c.worker_number = w.worker_number and e.employer_number = ? order by check_in_time desc limit ?,5";
         Connection con = DbPool.getConnection();
         PreparedStatement pst = null;
         BasicDao dao = new BasicDao();
         ResultSet rs = null;
-        List<Contract> list = new ArrayList<Contract>();
+        List<ContractLsda> list = new ArrayList<ContractLsda>();
         try {
             pst = con.prepareStatement(sql);
             rs = new BasicDao().execQuery(pst, employer_number, page);
             while (rs.next() && rs != null) {
-                int contract_number = rs.getInt(1);
-                int company_number = rs.getInt(2);
-                int e_number = rs.getInt(3);
-                int worker_number = rs.getInt(4);
-                int manager_number = rs.getInt(5);
-                String check_in_time = rs.getString(6);
-                String period = rs.getString(7);
-                String status_ = rs.getString(8);
-                int pay = rs.getInt(9);
-                String employment_type = rs.getString(10);
-                int referral_fee = rs.getInt(11);
-                String closing_date = rs.getString(12);
-                Contract contract = new Contract(Integer.valueOf(contract_number).toString(), Integer.valueOf(company_number).toString(), Integer.valueOf(e_number).toString(), Integer.valueOf(worker_number).toString(), Integer.valueOf(manager_number).toString(), check_in_time, period, status_, Integer.valueOf(pay).toString(), employment_type, Integer.valueOf(referral_fee).toString(), closing_date);
-                list.add(contract);
+                String worker_name = rs.getString(1);
+                int worker_number=rs.getInt(2);
+                int fee = rs.getInt(3);
+                String entry_time = rs.getString(4);
+                String check_in_time = rs.getString(5);
+                String employement_type = rs.getString(6);
+                float pay = rs.getFloat(7);
+                String closeing_date = rs.getString(8);
+                ContractLsda contractLsda = new ContractLsda(worker_name,worker_number,fee,entry_time,check_in_time,employement_type,pay,closeing_date);
+                list.add(contractLsda);
             }
             return list;
         } catch (SQLException e) {
