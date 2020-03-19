@@ -1,6 +1,7 @@
 package cn.eight.homemaking.pojo;
 
-public class Employer {
+public class EmployerDd {
+    private String c_number;
     private String employer_number;
     private String company_number;
     private String employer_name;
@@ -29,13 +30,18 @@ public class Employer {
     private String claim ;
     private String  manager ;
     private String check_in_time ;
-    private String status_;
-    public Employer() {
+    private String check_in_times;
+    private String  periods;
+    private String  status;
+    private String  fee;
+
+    public EmployerDd() {
     }
 
-    public Employer(String company_number, String employer_name, String gender, String age, String nation, String hometown, String education, String idnumber, String worker_unit, String profession, String contract, String period, String telephone, String house, String address, String service_address, String home_current_address, String home_people_number, String home_service, String home_size, String home_food, String home_other, String min_pay, String max_pay, String claim, String manager, String check_in_time) {
-        this.employer_name = employer_name;
+    public EmployerDd(String employer_number, String company_number, String employer_name, String gender, String age, String nation, String hometown, String education, String idnumber, String worker_unit, String profession, String contract, String period, String telephone, String house, String address, String service_address, String home_current_address, String home_people_number, String home_service, String home_size, String home_food, String home_other, String max_pay, String min_pay, String claim, String manager, String check_in_time, String check_in_times, String periods, String status, String fee) {
+        this.employer_number = employer_number;
         this.company_number = company_number;
+        this.employer_name = employer_name;
         this.gender = gender;
         this.age = age;
         this.nation = nation;
@@ -61,34 +67,18 @@ public class Employer {
         this.claim = claim;
         this.manager = manager;
         this.check_in_time = check_in_time;
+        this.check_in_times = check_in_times;
+        this.periods = periods;
+        this.status = status;
+        this.fee = fee;
     }
 
-    public Employer(String company_number, String employer_name, String gender, String age, String nation, String hometown, String education, String idnumber, String worker_unit, String profession, String contract, String period, String telephone, String house, String address, String service_address, String home_current_address, String home_people_number, String home_service, String home_size, String home_food, String home_other, String claim, String manager, String check_in_time) {
-        this.employer_name = employer_name;
-        this.company_number = company_number;
-        this.gender = gender;
-        this.age = age;
-        this.nation = nation;
-        this.hometown = hometown;
-        this.education = education;
-        this.idnumber = idnumber;
-        this.worker_unit = worker_unit;
-        this.profession = profession;
-        this.contract = contract;
-        this.period = period;
-        this.telephone = telephone;
-        this.house = house;
-        this.address = address;
-        this.service_address = service_address;
-        this.home_current_address = home_current_address;
-        this.home_people_number = home_people_number;
-        this.home_service = home_service;
-        this.home_size = home_size;
-        this.home_food = home_food;
-        this.home_other = home_other;
-        this.claim = claim;
-        this.manager = manager;
-        this.check_in_time = check_in_time;
+    public String getC_number() {
+        return c_number;
+    }
+
+    public void setC_number(String c_number) {
+        this.c_number = c_number;
     }
 
     public String getEmployer_number() {
@@ -97,13 +87,6 @@ public class Employer {
 
     public void setEmployer_number(String employer_number) {
         this.employer_number = employer_number;
-    }
-    public String getStatus_() {
-        return status_;
-    }
-
-    public void setStatus_(String status_) {
-        this.status_ = status_;
     }
 
     public String getCompany_number() {
@@ -322,5 +305,35 @@ public class Employer {
         this.check_in_time = check_in_time;
     }
 
+    public String getCheck_in_times() {
+        return check_in_times;
+    }
 
+    public void setCheck_in_times(String check_in_times) {
+        this.check_in_times = check_in_times;
+    }
+
+    public String getPeriods() {
+        return periods;
+    }
+
+    public void setPeriods(String periods) {
+        this.periods = periods;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
 }

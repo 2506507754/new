@@ -110,7 +110,7 @@ body {
     <td  width="14"   class="Menu_OutTd"  id="menutd1">&nbsp;</td>
 	
 	<td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="grxx_cx.htm" target="main">用工检索</a></td>
-    <td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="ddgl.htm" target="main"> 用工管理</a></td>
+    <td  width="70" nowrap id="menubar_4"   class="Menu_OutTd">|<a href="${pageContext.request.contextPath}/Homemaking/employmentServlet?reqType=query" target="main"> 用工管理</a></td>
     <td  width="70" nowrap id="menubar_5"   class="Menu_OutTd">|<a href="${pageContext.request.contextPath}/Homemaking/manageSvl?reqType=queryAllEmployer" target="main"> 客户管理</a></td>
     
     <td width="70" nowrap  class="Menu_OutTd" id="menubar_10">| <a href="mrtz.htm" target="main">每日通知</a> </td>

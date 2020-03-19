@@ -12,7 +12,6 @@
 <script type="text/javascript" src="../javascript/handleArchive.js"></script>
 <script language="JavaScript">
     function myfun() {
-        close(${sessionScope.queryCustomer.gender.equals("男")});
         if (${sessionScope.queryCustomer.gender.equals("男")}) {
             document.getElementById("radio13").checked =false;
             document.getElementById("radio12").checked =true;
